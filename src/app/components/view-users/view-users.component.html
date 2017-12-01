@@ -1,0 +1,18 @@
+<div class="container">
+    <div *ngIf="users?.length > 0;else noUsers">
+        <ul *ngFor="let user of users" class="collection">
+            <li class="collection-item">Id:[ {{user.id}} ] Email: <strong>{{user.email}}</strong>
+            <a href="#" class="secondary-content">
+                <i (click)="options()" class="fa fa-pencil"></i>
+            </a>
+            <div *ngIf="editState">
+                <button (click)="deleteItem(user)" class="btn red">Delete</button>
+            </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ng-template #noUsers>
+    <h5 class="text-center">Loading Users</h5>
+</ng-template>

@@ -11,6 +11,7 @@ import { User } from '../../models/loginUser';
 export class DashBoardComponent implements OnInit {
   //Declare no user elemnt to avoid undefined
   user: User = {
+    id: '',
     email: 'NO USER',
     password: ''
   };

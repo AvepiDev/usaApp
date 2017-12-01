@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { User } from '../models/loginUser';
 import { Observable } from 'rxjs/Observable';
+import { Subscriber } from 'rxjs/Subscriber';
 
 @Injectable()
 export class GetUsersService {
   userCollection: AngularFirestoreCollection<User>;
   users: Observable<User[]>;
   userDoc: AngularFirestoreDocument<User>;
+
+  subscribeItems: User[];
 
   constructor(public afs: AngularFirestore) { 
 
@@ -19,10 +22,24 @@ export class GetUsersService {
         return data;
       });
     });
+
+    //Make preSubscribe to get items
+    this.users.subscribe(items => {
+      this.subscribeItems = items;
+    });
+  }
+
+  //Get the preSubscribe from the Service
+  getSubscribe(): User[]{
+    return this.subscribeItems;
   }
 
   getUsers(){
     return this.users;
+  }
+
+  addUser(u: User){
+    this.userCollection.add(u);
   }
 
 }

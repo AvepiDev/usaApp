@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="text-center">
+      <h3>Access [Administration only]</h3>
+  </div>
+  <p>Enter your credentials to access the Admin Panel</p>
+      <form>
+              <div class="form-group">
+                <label for="username">UserName:</label>
+                <input type="text" placeholder="Your username" class="form-control" id="username" [(ngModel)]="admin.username" name="admin">
+              </div>
+              <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" placeholder="Your Password" class="form-control" id="pwd" [(ngModel)]="admin.password" name="password">
+              </div>
+              <button (click)="verify()" type="submit" class="btn btn-default">Access</button>
+      </form>
+</div> 

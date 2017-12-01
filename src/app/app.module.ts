@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 //Services Added manually
 import { GetUsersService } from './services/get-users.service';
 import { ActiveUserService } from './services/active-user.service';
+import { GetadminService } from './services/getadmin.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -16,10 +17,16 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdministrationComponent } from './components/administration/administration.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { ViewUsersComponent } from './components/view-users/view-users.component';
 
 const appRoutes: Routes = [
-  {path: '', component:LoginUserComponent},
-  {path: 'dashboard', component:DashBoardComponent}
+  {path: '', component:LoginUserComponent}, //Change to LoginUserComponent
+  {path: 'dashboard', component:DashBoardComponent},
+  {path: 'admin', component:AdminComponent},
+  {path: 'adminDash', component:AdministrationComponent}
 ]
 
 
@@ -28,7 +35,11 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     LoginUserComponent,
-    DashBoardComponent
+    DashBoardComponent,
+    AdminComponent,
+    AdministrationComponent,
+    AddUserComponent,
+    ViewUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,7 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GetUsersService, ActiveUserService], //Add Services manually
+  providers: [GetUsersService, ActiveUserService, GetadminService], //Add Services manually
   bootstrap: [AppComponent]
 })
 export class AppModule { }

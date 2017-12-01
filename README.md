@@ -6,6 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Add the firebase object to the enviroment.ts before running the app.
 
 # Updates
+Last Update 30/11/2017. Adding the Administration Dashboard
 Last Update 29/11/2017. Adding User-Login
 
 ## Development server
