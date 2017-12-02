@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GetUsersService } from './services/get-users.service';
 import { ActiveUserService } from './services/active-user.service';
 import { GetadminService } from './services/getadmin.service';
+import { AddOrderService } from './services/add-order.service';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -21,6 +22,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdministrationComponent } from './components/administration/administration.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ViewUsersComponent } from './components/view-users/view-users.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 const appRoutes: Routes = [
   {path: '', component:LoginUserComponent}, //Change to LoginUserComponent
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     AdminComponent,
     AdministrationComponent,
     AddUserComponent,
-    ViewUsersComponent
+    ViewUsersComponent,
+    AddOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [GetUsersService, ActiveUserService, GetadminService], //Add Services manually
+  providers: [GetUsersService, ActiveUserService, GetadminService, AddOrderService], //Add Services manually
   bootstrap: [AppComponent]
 })
 export class AppModule { }

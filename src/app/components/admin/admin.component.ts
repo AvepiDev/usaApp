@@ -31,7 +31,6 @@ export class AdminComponent implements OnInit {
       this.admins.forEach(u => {
         if(u.username === this.admin.username && u.password === this.admin.password){
           this.access = true;
-          console.log("ID: "+u.id);
           this.activeUser.setAdminCredential(u.id,u.username);
           return true;
         }

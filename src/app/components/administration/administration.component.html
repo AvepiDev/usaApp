@@ -28,7 +28,7 @@
 
 <div [ngSwitch]="template">
   
-       <div *ngSwitchCase="1"><h1 class="text-center">No content!!</h1></div>
+       <div *ngSwitchCase="1"><h1 class="text-center"><app-add-order></app-add-order></h1></div>
        <div *ngSwitchCase="2"><app-add-user></app-add-user></div>
        <div *ngSwitchCase="3"><app-view-users></app-view-users></div>
        <div *ngSwitchDefault>

@@ -1,12 +1,12 @@
 <div class="container">
     <div *ngIf="users?.length > 0;else noUsers">
         <ul *ngFor="let user of users" class="collection">
-            <li class="collection-item">Id:[ {{user.id}} ] Email: <strong>{{user.email}}</strong>
+            <li class="collection-item">Id:[ {{user.id}} ] Email: {{user.email}}
             <a href="#" class="secondary-content">
-                <i (click)="options()" class="fa fa-pencil"></i>
+                <i (click)="options($event, user)" class="fa fa-pencil"></i>
             </a>
-            <div *ngIf="editState">
-                <button (click)="deleteItem(user)" class="btn red">Delete</button>
+            <div *ngIf="editState && userToDelete.id == user.id">
+                <button (click)="deleteUser($event, user)" class="btn red">delete user</button>
             </div>
             </li>
         </ul>

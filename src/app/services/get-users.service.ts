@@ -29,6 +29,11 @@ export class GetUsersService {
     });
   }
 
+  deleteUser(u: User){
+    this.userDoc = this.afs.doc('users/'+u.id);
+    this.userDoc.delete();
+  }
+
   //Get the preSubscribe from the Service
   getSubscribe(): User[]{
     return this.subscribeItems;

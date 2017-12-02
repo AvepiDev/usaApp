@@ -10,6 +10,7 @@ import { User } from '../../models/loginUser';
 export class ViewUsersComponent implements OnInit {
   users: User[];
   editState: boolean = false;
+  userToDelete: User;
 
   constructor(private getUsers: GetUsersService) { }
 
@@ -17,11 +18,19 @@ export class ViewUsersComponent implements OnInit {
     this.users = this.getUsers.getSubscribe();
   }
 
-  options(){
+  options(event, u: User){
     this.editState = true;
+    this.userToDelete = u;
   }
 
-  deleteItem(u: User){
+  deleteUser(event, u: User){
+    this.getUsers.deleteUser(u);
+    this.clearState();
+  }
+
+  clearState(){
+    this.editState = false;
+    this.userToDelete = null;
   }
 
 }

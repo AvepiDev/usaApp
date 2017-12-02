@@ -1,0 +1,56 @@
+<div class="container">
+  <h5>Add Order</h5>
+  <h6>Search client by email</h6>
+  <div *ngIf="users != undefined ;else loading">
+      <div *ngIf="!userFound" class="input-field inline">
+          <input id="email" type="email" [(ngModel)]="user.email" name="email" class="validate">
+          <label for="email" data-error="wrong" data-success="right">Email</label>
+          <button (click)="search()" class="btn waves-effect waves-light" type="submit" name="search">Search
+          </button>
+      </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<div *ngIf="user.id != '' ;else noUsers">
+  <h6>Current User:</h6>
+  <label>Id: {{user.id}}</label>
+  <label>Email: {{user.email}}</label><br>
+  <button (click)="change()" class="btn waves-effect waves-light" name="search">change user
+  </button>
+  <form class="col s12">
+    <div class="row">
+        <div class="input-field col s4">
+            <input placeholder="Placeholder" id="due_date" type="date" class="validate" [(ngModel)]="order.date" name="date">
+        </div>
+        <div class="input-field col s4">
+            <input id="lot_no" type="text" class="validate" [(ngModel)]="order.lot" name="Lot">
+            <label for="lot_no">Lot. No.</label>
+        </div>
+        <div class="input-field col s4">
+            <input id="plts" type="text" class="validate" [(ngModel)]="order.plts" name="plts">
+            <label for="plts">Plts.</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s4">
+            <input id="lot_no" type="text" class="validate" [(ngModel)]="order.desc" name="desc">
+            <label for="lot_no">Description</label>
+        </div>
+        <div class="input-field col s4">
+            <input id="plts" type="number" class="validate" [(ngModel)]="order.rate" name="rate">
+            <label for="plts">Rate</label>
+        </div>
+    </div>
+    <div class="row">
+        <button (click)="setOrder()" class="btn waves-effect waves-light" name="addOrder">Add Order
+        </button>
+    </div>
+  </form>
+</div>
+
+<ng-template #noUsers>
+</ng-template>

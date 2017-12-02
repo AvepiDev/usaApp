@@ -2,3 +2,26 @@
 
 <p>ID: <strong>{{user.id}}</strong></p>
 <p>Email: <strong>{{user.email}}</strong></p>
+
+<div *ngIf="orders?.length > 0; else noOrder">
+    <table>
+        <tr>
+        <th>DueDate</th>
+        <th>Lot No.</th>
+        <th>Plts</th>
+        <th>Description</th>
+        <th>Rate</th>
+        </tr>
+        <tr *ngFor="let order of orders">
+           <th>{{order.date}}</th>
+           <th>{{order.lot}}</th>
+           <th>{{order.plts}}</th>
+           <th>{{order.desc}}</th>
+           <th>{{order.rate}}</th> 
+        </tr>
+    </table>
+</div>
+
+<ng-template #noOrder>
+    <h5>There are no orders</h5>
+</ng-template>
